@@ -4,12 +4,14 @@ com\bezkoder\springjwt\models\User.class
 com\bezkoder\springjwt\payload\response\MessageResponse.class
 com\bezkoder\springjwt\security\WebSecurityConfig.class
 com\bezkoder\springjwt\controllers\AuthController.class
+Config.class
 com\bezkoder\springjwt\payload\response\JwtResponse.class
 com\bezkoder\springjwt\payload\request\SignupRequest.class
 com\bezkoder\springjwt\security\services\UserDetailsServiceImpl.class
 com\bezkoder\springjwt\security\jwt\AuthTokenFilter.class
 com\bezkoder\springjwt\repository\UserRepository.class
 com\bezkoder\springjwt\security\services\UserDetailsImpl.class
+Server.class
 com\bezkoder\springjwt\controllers\TestController.class
 com\bezkoder\springjwt\security\jwt\AuthEntryPointJwt.class
 com\bezkoder\springjwt\models\Role.class
