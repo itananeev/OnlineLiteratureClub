@@ -60,7 +60,7 @@ public class AuthController {
   @Autowired
   private UserDetailsServiceImpl userDetailsService;
 
-  private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
+//  private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
   private UserDetails getUserFromToken (String token) {
     try {
@@ -75,13 +75,13 @@ public class AuthController {
     return null;
   }
 
-  @RabbitListener(queues = "${queue.name}")
-  public String getUserDetailsFromToken(String token) {
-    UserDetails userDetails = getUserFromToken(token);
-    System.out.println("Received Token:" + token);
-    assert userDetails != null;
-    return userDetails.getUsername();
-  }
+//  @RabbitListener(queues = "${queue.name}")
+//  public String getUserDetailsFromToken(String token) {
+//    UserDetails userDetails = getUserFromToken(token);
+//    System.out.println("Received Token:" + token);
+//    assert userDetails != null;
+//    return userDetails.getUsername();
+//  }
 
   @PostMapping("/signin")
   public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {

@@ -11,40 +11,40 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
 
-    @Value("${queue.name}")
-    private String queueName;
-
-    @Value("${xchange.name}")
-    private String directXchangeName;
-
-    @Bean
-    @Qualifier("queue")
-    public Queue queue() {
-        return new Queue(queueName);
-    }
-
-    @Bean
-    @Qualifier("queueTest")
-    public Queue queueTest() {
-        return new Queue("queueTest");
-    }
-
-    @Bean
-    @Qualifier("directExchange")
-    public DirectExchange directExchange() {
-        return new DirectExchange(directXchangeName);
-    }
-
-
-    @Bean
-    public Binding binding(@Qualifier("directExchange") DirectExchange exchange, @Qualifier("queue")Queue queue) {
-        return BindingBuilder.bind(queue).to(exchange).with("roytuts");
-    }
-
-    @Bean
-    public Binding bindingTest(@Qualifier("directExchange") DirectExchange exchangeTest, @Qualifier("queueTest")Queue queueTest) {
-        return BindingBuilder.bind(queueTest).to(exchangeTest).with("test");
-    }
+//    @Value("${queue.name}")
+//    private String queueName;
+//
+//    @Value("${xchange.name}")
+//    private String directXchangeName;
+//
+//    @Bean
+//    @Qualifier("queue")
+//    public Queue queue() {
+//        return new Queue(queueName);
+//    }
+//
+//    @Bean
+//    @Qualifier("queueTest")
+//    public Queue queueTest() {
+//        return new Queue("queueTest");
+//    }
+//
+//    @Bean
+//    @Qualifier("directExchange")
+//    public DirectExchange directExchange() {
+//        return new DirectExchange(directXchangeName);
+//    }
+//
+//
+//    @Bean
+//    public Binding binding(@Qualifier("directExchange") DirectExchange exchange, @Qualifier("queue")Queue queue) {
+//        return BindingBuilder.bind(queue).to(exchange).with("roytuts");
+//    }
+//
+//    @Bean
+//    public Binding bindingTest(@Qualifier("directExchange") DirectExchange exchangeTest, @Qualifier("queueTest")Queue queueTest) {
+//        return BindingBuilder.bind(queueTest).to(exchangeTest).with("test");
+//    }
 
 //    @Bean
 //    public Server server() {
