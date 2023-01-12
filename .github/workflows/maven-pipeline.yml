@@ -59,4 +59,4 @@ jobs:
           gcloud components install gke-gcloud-auth-plugin
           gcloud container clusters get-credentials olcauth-cluster --zone europe-west4
           sleep 5s
-          kubectl set image deployment/olcauth-app olcauth-app=europe-west4-docker.pkg.dev/onlineliteratureclub-370818/olcauth-repo/olcauth-app:${{ github.sha }}
+          kubectl set image deployment/hello-app olcauth-app=europe-west4-docker.pkg.dev/onlineliteratureclub-370818/olcauth-repo/olcauth-app:${{ github.sha }}
