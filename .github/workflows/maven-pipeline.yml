@@ -43,10 +43,11 @@ jobs:
         run: |
           wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.5.zip
           unzip -q apache-jmeter-5.5.zip
-          export PATH=$PATH:$PWD/apache-jmeter-5.5/bin
       
       - name: Run Load Test
-        run: jmeter -n -t testplan.jmx -l testresults.jtl
+        run: |
+          export PATH=$PATH:$PWD/apache-jmeter-5.5/bin
+          jmeter -n -t testplan.jmx -l testresults.jtl
 
       - name: Upload test results
         uses: actions/upload-artifact@v2
