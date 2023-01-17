@@ -44,9 +44,6 @@ jobs:
           wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.5.zip
           unzip -q apache-jmeter-5.5.zip
           export PATH=$PATH:$PWD/apache-jmeter-5.5/bin
-          
-      - name: Add JMeter to PATH
-        run: export PATH=$PATH:$PWD/C:\Users\CyBe\Desktop\apache-jmeter-5.5\apache-jmeter-5.5\bin
       
       - name: Run Load Test
         run: jmeter -n -t testplan.jmx -l testresults.jtl
