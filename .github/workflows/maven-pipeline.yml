@@ -39,6 +39,12 @@ jobs:
         id: snyk-test
         
   # Load testing
+      - name: Install JMeter
+        run: |
+          wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.4.zip
+          unzip -q apache-jmeter-5.4.zip
+          export PATH=$PATH:$PWD/apache-jmeter-5.4/bin
+      
       - name: Run Load Test
         run: jmeter -n -t testplan.jmx -l testresults.jtl
 
