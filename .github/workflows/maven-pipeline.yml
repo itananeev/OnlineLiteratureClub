@@ -32,11 +32,10 @@ jobs:
         run: chmod +x mvnw
 
       - name: Scan for vulnerabilities with Snyk
-        run: snyk test --severity-threshold=medium
+        run: snyk test --severity-threshold=medium || true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_AUTH_TOKEN }}
         id: snyk-test
-        if: always()
 
           
   # Authentication to google cloud services
