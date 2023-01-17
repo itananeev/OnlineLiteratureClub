@@ -36,6 +36,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_AUTH_TOKEN }}
         id: snyk-test
+        if: always()
 
           
   # Authentication to google cloud services
