@@ -41,20 +41,17 @@ jobs:
   # Load testing
       - name: Run Load Test
         run: jmeter -n -t testplan.jmx -l testresults.jtl
-        
-      - name: Analyze Test Results
-        uses: 'jmeter-result-analysis-action/jmeter-result-analysis@v1.0'
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
         with:
-          jtl-file-path: 'testresults.jtl'
-          jmeter-version: '5.4'
-          threshold-file-path: 'thresholds.txt'
+          name: test-results
+          path: testresults.jtl
           
-      - name: Report Test Results
-        uses: 'jmeter-html-reporter-action/jmeter-html-reporter@v1.0'
+      - name: Download test results
+        uses: actions/download-artifact@v2
         with:
-          jtl-file-path: 'testresults.jtl'
-          jmeter-version: '5.4'
-          report-path: 'report'
+          name: test-results
 
           
   # Authentication to google cloud services
