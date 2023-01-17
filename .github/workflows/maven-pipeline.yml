@@ -17,6 +17,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
+          jmeter-version: '5.5'
           cache: maven
 
       - name: Build with Maven
@@ -36,6 +37,24 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_AUTH_TOKEN }}
         id: snyk-test
+        
+  # Load testing
+      - name: Run Load Test
+        run: jmeter -n -t testplan.jmx -l testresults.jtl
+        
+      - name: Analyze Test Results
+        uses: 'jmeter-result-analysis-action/jmeter-result-analysis@v1.0'
+        with:
+          jtl-file-path: 'testresults.jtl'
+          jmeter-version: '5.4'
+          threshold-file-path: 'thresholds.txt'
+          
+      - name: Report Test Results
+        uses: 'jmeter-html-reporter-action/jmeter-html-reporter@v1.0'
+        with:
+          jtl-file-path: 'testresults.jtl'
+          jmeter-version: '5.4'
+          report-path: 'report'
 
           
   # Authentication to google cloud services
